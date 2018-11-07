@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand text-success" href="/">SMART NOTES - NODEJS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link text-success" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Search</a>
+            </li> -->
+        </ul>
+        <ul class="nav justify-content-end">
+            <% if(!dataSESSION || !dataSESSION.user) {%>
+            <li class="nav-item">
+                <a class="nav-link text-success" href="/signin">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-success" href="/signup">Sign up</a>
+            </li>
+            <% } else { %>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if(dataSESSION.user.avatar) {%>
+                    <img src="<%= dataSESSION.user.avatar %>" class="img-fluid rounded-circle" alt="..." width="24px" height="24px">
+                <% }else{ %>
+                    <img src="/static/img/user.png" class="img-fluid rounded-circle" alt="..." width="24px" height="24px">
+                <% } %>
+                <%= dataSESSION.user.username %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-success" href="/admin"><%= dataSESSION.user.id %></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-success" href="/createtnote">Create a new note</a>
+                    <a class="dropdown-item text-success" href="/listnote">Your list note</a>
+                    <a class="dropdown-item text-success" href="/signout">Sign out</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-success" href="/signout">Sign out</a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

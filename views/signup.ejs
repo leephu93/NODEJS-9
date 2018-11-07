@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= title %>
+    </title>
+    <% include style %>
+</head>
+
+<body>
+    <%- include menu %>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/signup" method="POST" class="form-signup">
+                    <legend>FORM SIGNUP</legend>
+                    <% if(message != null) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <strong><%= message %></strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <%}%>
+                    <div class="form-group">
+                        <label for="#">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="#">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter a new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="#">Re-Password</label>
+                        <input type="password" class="form-control" name="re_password" placeholder="Re-Enter a new password">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="rules" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Đồng ý với các điều khoản...</label>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Signup</button>
+                        <button type="reset" class="btn btn-light">Reset</button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <h5>Signin via social account </h5>
+                    <div class="btn-group">
+                        <a href="/auth/facebook" class="btn btn-secondary"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="/auth/google" class="btn btn-secondary"><i class="fab fa-google"></i> Google</a>
+                        <a href="/auth/github" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% include script %>
+</body>
+
+</html>

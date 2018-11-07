@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        ...
+    </title>
+    <%- include style %>
+</head>
+
+<body>
+    <%- include menu %>
+
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-12">
+                <% data.map(function(val,key){%>
+                <p>
+                    <h1>
+                        <%= val.title %>
+                    </h1>
+                </p>
+                <p>
+                    <small>
+                        Created at: <%= val.created_at %>
+                    </small>
+                </p>
+                <p>
+                    <small>
+                        By: <%= val.member %>
+                    </small>
+                </p>
+                <hr>
+                <p>
+                    <%= val.content %>
+                </p>
+                <%}) %>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include script %>
+</body>
+
+</html>

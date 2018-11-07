@@ -1,0 +1,10 @@
+.content {
+    padding: 1% 0%;
+}
+
+.form-signin, .form-signup {
+    border: 1px darkgray dashed;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}

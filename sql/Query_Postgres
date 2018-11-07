@@ -1,0 +1,9 @@
+Select * from members
+
+Delete from members where id='1816552355061207'
+
+Select * from notes
+
+Insert into notes values ('333','Making tooltips work for keyboard and assistive technology users','Bla bla ...',null,'2018-11-15 21:01:45',current_timestamp(0),'2018-11-7 21:01:45','1816552355061207')
+
+Delete from notes

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <% include style %>
+</head>
+<body>
+    <%- include menu %>
+    
+    <div class="container-fluid content">
+        <div class="col-md-10 offset-1">
+            <% if(typeof data == 'string') { %>
+            <h1>
+                <%= data %>
+            </h1>
+            <% } else { %>
+            <div class="table-responsive">
+                <table class="table table-bordered table-dark table-hover table-sm">
+                    <thead>
+                        <tr class="text-success text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Appointment</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Updated At</th>
+                            <th scope="col">Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.map(function(val,key){ %>
+                            <tr class="text-center">
+                                <th><%= key+1 %></th>
+                                <td>
+                                    <a href="/detail-note/<%= val.id %>" data-toggle="tooltip" data-placement="right" title="<%= val.content %>"><%= val.title %></a>
+                                </td>
+                                <td><%= val.appointment %></td>
+                                <td><%= val.created_at %></td>
+                                <td><%= val.updated_at %></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="/edit/<%= val.id %>" class="btn btn-success btn-sm">Edit</a>
+                                        <a href="/delete/<%= val.id %>" class="btn btn-secondary btn-sm">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <% include script %>
+</body>
+</html>

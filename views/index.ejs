@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= title %>
+    </title>
+    <%- include style %>
+</head>
+
+<body>
+    <%- include menu %>
+
+    <div class="container content">
+        <div class="row">
+            <% data.map(function(val,key){%>
+            <div class="card col-md-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= val.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= val.created_at %>
+                    </p>
+                    <a href="/detail-note/<%= val.id %>" class="btn btn-outline-success">See detail...</a>
+                </div>
+            </div>
+            <%}) %>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="dropdown-divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link text-success" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link text-success" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link text-success" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link text-success" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link text-success" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <%- include script %>
+</body>
+
+</html>
